@@ -1,8 +1,10 @@
 # ES654-2020 Assignment 3
 
-*Your Name* - *Your Roll Number*
+*N. V. Karthikeya* - *17110090*
 
 ------
 
-> Write the answers for the subjective questions here
+> In this question I have generated polynomial features for specified max degree and returned the new dataset
+> Here is an example
 
+![tree](./gifs/q4.png)

@@ -35,21 +35,21 @@ for N in tqdm(range(1,1000,200)):
             LR = LinearRegression(fit_intercept=fit_intercept)
             fit_time = time.time()
             LR.fit_non_vectorised(X, y, batch_size =N,n_iter=niter,lr_type = 'constant') # here you can use fit_non_vectorised / fit_autograd methods
-            fit_time = round(time.time() - fit_time, 3)
+            fit_time = time.time() - fit_time
             fnvol.append(fit_time)
             LR = LinearRegression(fit_intercept=fit_intercept)
             fit_time = time.time()
             LR.fit_vectorised(X, y, batch_size =N, n_iter=niter,lr_type = 'constant') # here you can use fit_non_vectorised / fit_autograd methods
-            fit_time = round(time.time() - fit_time, 3)
+            fit_time = time.time() - fit_time
             fvol.append(fit_time)
             LR = LinearRegression(fit_intercept=fit_intercept)
             fit_time = time.time()
             LR.fit_normal(X, y) # here you can use fit_non_vectorised / fit_autograd methods
-            fit_time = round(time.time() - fit_time, 3)
+            fit_time = time.time() - fit_time
             fnol.append(fit_time)
             pred_time = time.time()
             LR.predict(X) # here you can use fit_non_vectorised / fit_autograd methods
-            pred_time = round(time.time() - pred_time, 3)
+            pred_time = time.time() - pred_time
             pol.append(pred_time)
             fnel.append(fit_t(N,P)/(10**8))
             pel.append((N*P)/10**8)
@@ -74,12 +74,14 @@ def help_plot(am,grid,row,col,name):
     ax.set_yticks(np.arange(len(n)))
     ax.set_xticklabels(m)
     ax.set_yticklabels(n)
+    ax.set_xlabel('M')
+    ax.set_ylabel('N')
     for i in range(len(n)):
         for j in range(len(m)):
             # print(i,j)
             # print(len(grid),len(grid[0]))
             # print(grid)
-            text = ax.text(j, i, round(grid[i][j],5),ha="center", va="center", color="w")
+            text = ax.text(j, i, round(grid[i][j],3),ha="center", va="center", color="w")
     ax.set_title(name )
     plt.colorbar(im,ax=ax)
     

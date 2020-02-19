@@ -256,12 +256,11 @@ class LinearRegression():
             display_value.set_text('Min = ' + str(error[i][0][0]))
             return line, point, display_value
         ax2.legend(loc = 1)
-        anim2 = animation.FuncAnimation(fig2, animate_2, init_func=init_2,
-                                    frames=len(t_0), interval=120, 
-                                    repeat_delay=60, blit=True)
+        anim2 = animation.FuncAnimation(fig2, animate_2, init_func=init_2,frames=len(t_0), interval=120, repeat_delay=60, blit=True)
         #plt.show()
-        anim2.save('./gifs/surface_'+str(j)+'.gif', dpi=80,fps=2, writer='imagemagick')
-        plt.close()
+        return anim2
+        # anim2.save('./gifs/surface_'+str(j)+'.gif', dpi=80,fps=2, writer='imagemagick')
+        # plt.close()
         
         
     def format_axes(self,ax):
@@ -314,8 +313,7 @@ class LinearRegression():
             return line, ax
 
         anim = FuncAnimation(fig, update, frames=np.arange(0, 10), interval=1)
-        anim.save('./gifs/line_prior'+str(j)+'.gif', dpi=80,fps=2, writer='imagemagick')
-        plt.close()
+        return anim
 
     def plot_contour(self, X, y,error, t_0, t_1,j):
         """
@@ -370,4 +368,4 @@ class LinearRegression():
         anim1 = animation.FuncAnimation(fig1, animate_1, init_func=init_1,
                                     frames=len(t_0), interval=100, 
                                     repeat_delay=60, blit=True)
-        anim1.save('./gifs/contour_'+str(j)+'.gif', dpi=80,fps=2, writer='imagemagick')
+        return anim1

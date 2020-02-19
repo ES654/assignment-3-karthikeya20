@@ -29,3 +29,4 @@ for n in N:
     plt.ylabel(r'|$\theta$|')
     plt.legend()
 plt.savefig('./gifs/q6_plot.png')
+plt.show()
