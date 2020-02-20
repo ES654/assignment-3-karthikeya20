@@ -30,7 +30,6 @@ for j in ['constant','inverse']:
         LR = LinearRegression(fit_intercept=fit_intercept)
         LR.fit_vectorised(X, y, 1,n_iter=niter,lr_type = j) # here you can use fit_non_vectorised / fit_autograd methods
         y_hat = LR.predict(X)
-
         print('RMSE: ', rmse(y_hat, y))
         print('MAE: ', mae(y_hat, y))
     print()
